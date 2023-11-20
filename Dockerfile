@@ -10,8 +10,10 @@ RUN apk update && apk add make git
 COPY --from=build-web /Spark/ .
 RUN make server-releases
 RUN ./rename-server.sh
+RUN make client
 
 FROM docker.io/alpine:latest
 WORKDIR /app
 COPY --from=build-server /Spark/releases/spark .
+COPY --from=build-server /Spark/built .
 CMD [ "/app/spark" ]
