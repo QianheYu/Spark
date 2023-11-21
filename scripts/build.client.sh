@@ -28,7 +28,7 @@ go build -ldflags "-s -w -X 'Spark/client/config.COMMIT=$COMMIT'" -o ./built/win
 export GOOS=darwin
 
 export GOARCH=arm64
-go build -ldflags "-s -w -X 'Spark/server/config.COMMIT=$COMMIT'" -o ./built/darwin_amd64 Spark/client
+go build -ldflags "-s -w -X 'Spark/server/config.COMMIT=$COMMIT'" -o ./built/darwin_arm64 Spark/client
 export GOARCH=amd64
 go build -ldflags "-s -w -X 'Spark/server/config.COMMIT=$COMMIT'" -o ./built/darwin_amd64 Spark/client
 
