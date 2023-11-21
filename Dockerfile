@@ -12,7 +12,7 @@ RUN make server-releases
 RUN ./rename-server.sh
 RUN make client
 
-FROM alpine:latest
+FROM debian:latest
 WORKDIR /app
 COPY --from=build-server /Spark/releases/spark .
 COPY --from=build-server /Spark/built .
